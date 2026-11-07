@@ -3,6 +3,8 @@ package com.example.baggagecalculator;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Button;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etWeight, etRate;
     Spinner spTicketClass;
-    Button btnCalculate, btnAbout, btnShare;
+    Button btnCalculate, btnAbout;
     TextView tvExcessWeight, tvExcessCharge, tvTotalPayable;
 
     @Override
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        // Set application title
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Baggage Calculator");
+        }
+
         // Connect Java to XML
         etWeight = findViewById(R.id.etWeight);
         etRate = findViewById(R.id.etRate);
@@ -38,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnCalculate = findViewById(R.id.btnCalculate);
         btnAbout = findViewById(R.id.btnAbout);
-        btnShare = findViewById(R.id.btnShare);
 
         tvExcessWeight = findViewById(R.id.tvExcessWeight);
         tvExcessCharge = findViewById(R.id.tvExcessCharge);
@@ -100,22 +106,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Share button
-        btnShare.setOnClickListener(v -> {
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-
-            String shareText =
-                    "Check out my Excess Baggage Calculator!\n\n" +
-                            "Calculate your excess baggage charges here:\n" +
-                            "https://github.com/amey-kim/BaggageCalculator";
-
-            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
-
-            startActivity(Intent.createChooser(
-                    shareIntent, "Share using"));
-        });
-
         // Window insets
         ViewCompat.setOnApplyWindowInsetsListener(
                 findViewById(R.id.main), (v, insets) -> {
@@ -128,5 +118,37 @@ public class MainActivity extends AppCompatActivity {
 
                     return insets;
                 });
+    }
+
+    // ActionBar menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    // ActionBar share action
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.action_share) {
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+
+            String shareText =
+                    "Check out my Excess Baggage Calculator!\n\n" +
+                            "Calculate your excess baggage charges here:\n" +
+                            "https://github.com/amey-kim/BaggageCalculator";
+
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+            startActivity(Intent.createChooser(
+                    shareIntent, "Share using"));
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

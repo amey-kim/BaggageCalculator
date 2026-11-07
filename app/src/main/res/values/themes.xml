@@ -1,9 +1,16 @@
+
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.BaggageCalculator" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Base.Theme.BaggageCalculator"
+        parent="Theme.Material3.DayNight">
+
+        <item name="colorPrimary">#102A43</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#1565C0</item>
+
     </style>
 
-    <style name="Theme.BaggageCalculator" parent="Base.Theme.BaggageCalculator" />
+    <style name="Theme.BaggageCalculator"
+        parent="Base.Theme.BaggageCalculator" />
+
 </resources>
