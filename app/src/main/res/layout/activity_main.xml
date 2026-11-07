@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F5FA"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#102A43"
+            android:padding="28dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✈"
+                android:textSize="40sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BAGGAGE CALCULATOR"
+                android:textColor="#FFFFFF"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calculate your excess baggage fees"
+                android:textColor="#BDD7EE"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginTop="6dp"/>
+
+        </LinearLayout>
+
+        <!-- Instructions -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your baggage information below to estimate your additional charges."
+            android:textColor="#526579"
+            android:textSize="14sp"
+            android:layout_marginBottom="18dp"/>
+
+        <!-- Input Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BAGGAGE INFORMATION"
+                android:textColor="#102A43"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="18dp"/>
+
+            <!-- Weight -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Baggage Weight (kg)"
+                android:textColor="#243B53"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter baggage weight"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="18dp"/>
+
+            <!-- Ticket Class -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ticket Class"
+                android:textColor="#243B53"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <Spinner
+                android:id="@+id/spTicketClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/ticket_classes"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="18dp"/>
+
+            <!-- Rate -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Excess Baggage Rate (RM/kg)"
+                android:textColor="#243B53"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/etRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter rate per kg"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Calculate Button -->
+            <Button
+                android:id="@+id/btnCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CALCULATE FEE"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:backgroundTint="#1565C0"
+                android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ABOUT THIS APP"
+                android:textColor="#102A43"
+                android:backgroundTint="#BDD7EE"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <!-- Results Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="3dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CALCULATION RESULTS"
+                android:textColor="#102A43"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvExcessWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Excess Weight: -- kg"
+                android:textColor="#334E68"
+                android:textSize="15sp"
+                android:padding="12dp"
+                android:background="#F2F5FA"/>
+
+            <TextView
+                android:id="@+id/tvExcessCharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Excess Charge: RM --"
+                android:textColor="#334E68"
+                android:textSize="15sp"
+                android:padding="12dp"
+                android:background="#F2F5FA"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvTotalPayable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Payable: RM --"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:background="#102A43"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
+
+        <!-- Helpful Notice -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IMPORTANT NOTICE\nEconomy allowance: 20 kg\nBusiness allowance: 40 kg\nAn additional 8% service tax applies to excess baggage charges."
+            android:textColor="#526579"
+            android:textSize="13sp"
+            android:lineSpacingExtra="4dp"
+            android:background="#E3EDF7"
+            android:padding="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Baggage Calculator © 2026"
+            android:textColor="#829AB1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

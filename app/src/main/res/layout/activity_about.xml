@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/aboutMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F5FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#102A43"
+            android:padding="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✈"
+                android:textSize="42sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ABOUT US"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Excess Baggage Calculator"
+                android:textColor="#BDD7EE"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <!-- Developer Details -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DEVELOPER INFORMATION"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#102A43"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="3dp"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="#627D98"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MOHAMAD AMIRHAKIM BIN AZHAR"
+                android:textColor="#102A43"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Number"
+                android:textColor="#627D98"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2024670542"
+                android:textColor="#102A43"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group"
+                android:textColor="#627D98"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RCDCS2405B"
+                android:textColor="#102A43"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Programme Code"
+                android:textColor="#627D98"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CDCS240"
+                android:textColor="#102A43"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+        <!-- Application Details -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APPLICATION DETAILS"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#102A43"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Excess Baggage Calculator helps travellers estimate additional baggage charges based on their baggage weight, ticket class and excess baggage rate.\n\nVersion: 1.0\nPlatform: Android"
+            android:textColor="#334E68"
+            android:textSize="14sp"
+            android:lineSpacingExtra="5dp"
+            android:background="#FFFFFF"
+            android:padding="20dp"/>
+
+        <!-- GitHub -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APPLICATION WEBSITE"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#102A43"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tvGithub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GitHub Repository: https://github.com/"
+            android:textColor="#1565C0"
+            android:textSize="14sp"
+            android:autoLink="web"
+            android:background="#FFFFFF"
+            android:padding="20dp"/>
+
+        <!-- Copyright -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© 2026 MOHAMAD AMIRHAKIM BIN AZHAR\nAll Rights Reserved."
+            android:textColor="#829AB1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="20dp"/>
+
+    </LinearLayout>
+</ScrollView>
