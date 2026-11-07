@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etWeight, etRate;
     Spinner spTicketClass;
-    Button btnCalculate, btnAbout;
+    Button btnCalculate, btnAbout, btnShare;
     TextView tvExcessWeight, tvExcessCharge, tvTotalPayable;
 
     @Override
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnCalculate = findViewById(R.id.btnCalculate);
         btnAbout = findViewById(R.id.btnAbout);
+        btnShare = findViewById(R.id.btnShare);
 
         tvExcessWeight = findViewById(R.id.tvExcessWeight);
         tvExcessCharge = findViewById(R.id.tvExcessCharge);
@@ -50,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
             String rateInput = etRate.getText().toString().trim();
 
             if (weightInput.isEmpty() || rateInput.isEmpty()) {
-                Toast.makeText(this,
-                        "Please fill in all fields!",
+                Toast.makeText(this, "Please fill in all fields!",
                         Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -60,10 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 double baggageWeight = Double.parseDouble(weightInput);
                 double rate = Double.parseDouble(rateInput);
 
-                if (!Double.isFinite(baggageWeight) ||
-                        baggageWeight < 0 ||
+                if (!Double.isFinite(baggageWeight) || baggageWeight < 0 ||
                         !Double.isFinite(rate) || rate < 0) {
-
                     Toast.makeText(this,
                             "Please enter valid non-negative values!",
                             Toast.LENGTH_SHORT).show();
@@ -81,21 +79,17 @@ public class MainActivity extends AppCompatActivity {
                 double excessCharge = excessWeight * rate;
                 double totalPayable = excessCharge * 1.08;
 
-                tvExcessWeight.setText(
-                        String.format(Locale.US,
-                                "Excess Weight: %.2f kg", excessWeight));
+                tvExcessWeight.setText(String.format(Locale.US,
+                        "Excess Weight: %.2f kg", excessWeight));
 
-                tvExcessCharge.setText(
-                        String.format(Locale.US,
-                                "Excess Charge: RM %.2f", excessCharge));
+                tvExcessCharge.setText(String.format(Locale.US,
+                        "Excess Charge: RM %.2f", excessCharge));
 
-                tvTotalPayable.setText(
-                        String.format(Locale.US,
-                                "Total Payable: RM %.2f", totalPayable));
+                tvTotalPayable.setText(String.format(Locale.US,
+                        "Total Payable: RM %.2f", totalPayable));
 
             } catch (NumberFormatException e) {
-                Toast.makeText(this,
-                        "Please enter valid numeric values!",
+                Toast.makeText(this, "Please enter valid numeric values!",
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -104,6 +98,22 @@ public class MainActivity extends AppCompatActivity {
         btnAbout.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
+        });
+
+        // Share button
+        btnShare.setOnClickListener(v -> {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+
+            String shareText =
+                    "Check out my Excess Baggage Calculator!\n\n" +
+                            "Calculate your excess baggage charges here:\n" +
+                            "https://github.com/amey-kim/BaggageCalculator";
+
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+            startActivity(Intent.createChooser(
+                    shareIntent, "Share using"));
         });
 
         // Window insets

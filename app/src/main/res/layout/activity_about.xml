@@ -167,7 +167,7 @@
             android:id="@+id/tvGithub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GitHub Repository: https://github.com/"
+            android:text="GitHub Repository: https://github.com/amey-kim/BaggageCalculator"
             android:textColor="#1565C0"
             android:textSize="14sp"
             android:autoLink="web"
